@@ -15,10 +15,6 @@ nnoremap H ^
 " Move to the end of line
 nnoremap L $
 
-" Select all text
-map <Space>a ggVG
-map <Space>l dawi
-
 " Redo
 nnoremap U <C-r>
 
@@ -127,7 +123,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 Plugin 'vim-scripts/phd'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'octol/vim-cpp-enhanced-highlight'	
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'kshenoy/vim-signature'
