@@ -26,7 +26,7 @@ alias nv="nvim"
 alias o="open"
 alias rmdotfiles='find . -name "._*" | xargs rm -f'
 alias cp="cp -i"
-alias rm="/usr/local/Cellar/node/10.0.0/bin/trash"
+#alias rm="/usr/local/Cellar/node/10.0.0/bin/trash"
 alias mysql="/Applications/MAMP/Library/bin/mysql"
 #git
 alias gs="git status"
@@ -48,6 +48,7 @@ alias cat='ccat'
 
 #alias vim='mvim -v'
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome &"
+alias em="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias svim='sudo mvim -v'
 alias mcd='cd /Volumes/kinglemac/code'
 alias des='cd ~/Desktop'
