@@ -9,5 +9,5 @@
 - init.el `emacs`配置文件
 - pac.conf `shadowsocks`pac配置文件
 - proxychains.conf `proxychains-ng`配置文件
-- tmux.conf 'tmux'配置文件
+- tmux.conf `tmux`配置文件
 

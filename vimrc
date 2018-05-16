@@ -2,6 +2,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/luofei614/vim-plug', { 'dir':'~/.vim/my'}
 "Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-scripts/mru.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'suan/vim-instant-markdown'
+"Plug 'gabrielelana/vim-markdown'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
 Plug 'godlygeek/tabular'
@@ -17,7 +20,6 @@ Plug 'rking/ag.vim'
 Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'plasticboy/vim-markdown'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -47,6 +49,7 @@ call plug#end()
 " 更新时间：2018-05-12
 " 定义快捷键的前缀，即 <Leader>
 let mapleader=";"
+let g:markdown_enable_spell_checking = 0
 " 设置 tagbar 子窗口的位置出现在主编辑区的左边
 let tagbar_left=1
 "设置顶端样式
@@ -117,6 +120,7 @@ set background=dark
 "colorscheme solarized
 "colorscheme molokai
 "colorscheme phd
+"colorscheme lucius
 colorscheme dracula
 " 禁止显示滚动条
 set guioptions-=l
@@ -168,10 +172,10 @@ filetype on
 filetype plugin on
 
 inoremap kj  <Esc>
-inoremap <C-f> <Left>
+inoremap <C-b> <Left>
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
-inoremap <C-b> <Right>
+inoremap <C-f> <Right>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-d> <Delete>
@@ -227,7 +231,6 @@ nnoremap <Leader>Q :qa!<CR>
 "nnoremap <silent> <Leader>i <Plug>IndentGuidesToggle
 " 设置显示／隐藏标签列表子窗口的快捷键。速记：identifier list by tag
 nnoremap <Leader>il :TagbarToggle<CR>
-nnoremap <Leader>in :PlugInstall<CR>
 nnoremap <Leader>in :PlugInstall<CR>
 nnoremap <Leader>cl :PlugClean<CR>
 " *.cpp 和 *.h 间切换
