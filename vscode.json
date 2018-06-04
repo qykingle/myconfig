@@ -1,0 +1,76 @@
+{
+    "editor.fontSize": 21,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.historyExplorer.enabled": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 100,
+
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>","d"],
+            "after": ["d", "d"]
+        },
+        {
+            "before":["<C-n>"],
+            "after":[],
+            "commands": [
+                {
+                    "command": ":nohl"
+                }
+            ]
+        },
+        {
+            "before": [":"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.showCommands",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["Z", "Z"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.save",
+                    "args": []
+                },
+                {
+                    "command": "workbench.action.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["leader", "q"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.files.closeActiveEditor",
+                    "args": []
+                }
+            ]
+        }
+    ],
+    "vim.leader": ";",
+    "vim.handleKeys":{
+        "<C-a>": false,
+        "<C-f>": false
+    }
+}
