@@ -14,7 +14,7 @@ export PATH="$PATH:/usr/local/phantomjs"
 
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
-export PATH=~/anaconda/bin:$PATH
+export PATH=~/anaconda3/bin:$PATH
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="cloud"
@@ -26,6 +26,7 @@ alias nv="nvim"
 alias o="open"
 alias rmdotfiles='find . -name "._*" | xargs rm -f'
 alias cp="cp -i"
+alias rm="trash"
 #alias rm="/usr/local/Cellar/node/10.0.0/bin/trash"
 alias mysql="/Applications/MAMP/Library/bin/mysql"
 #git
