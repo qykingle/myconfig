@@ -1,13 +1,29 @@
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/luofei614/vim-plug', { 'dir':'~/.vim/my'}
-"Plug 'terryma/vim-multiple-cursors'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'terryma/vim-multiple-cursors'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'MarcWeber/vim-addon-mw-utils' 
+Plug 'tomtom/tlib_vim' 
+Plug 'garbas/vim-snipmate'
 Plug 'vim-scripts/mru.vim'
-Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+"Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-markdown'
 Plug 'suan/vim-instant-markdown'
 "Plug 'gabrielelana/vim-markdown'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
-Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-scripts/bufexplorer.zip'
@@ -27,27 +43,23 @@ Plug 'tpope/vim-surround'
 Plug 'Raimondi/delimitMate'
 Plug 'dyng/ctrlsf.vim'
 Plug 'honza/vim-snippets'
-" Make sure you use single quotes
 Plug 'junegunn/vim-easy-align'
-" Plugin options
 Plug 'nsf/gocode', { 'rtp': 'vim' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"zencoding 改名为了 Emmet
 Plug 'https://github.com/luofei614/Emmet.vim'
-" 下面这个插件可取代Command-T 但是现在暂时不支持目录忽略，所以先暂时不用
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-"bookmark  mm 添加书签,  mn 移动书签  mp 移动到前一个书签  ma 删除所有书签
 Plug 'MattesGroeger/vim-bookmarks'
-"Bundle 'JavaScript-syntax'
 Plug 'pangloss/vim-javascript'
-" jquery , angularjs 等语法
 Plug 'https://github.com/othree/javascript-libraries-syntax.vim.git'
-"html5插件
 Plug 'othree/html5.vim'
 call plug#end()
 
 " 更新时间：2018-05-12
 " 定义快捷键的前缀，即 <Leader>
+if $TERM_PROGRAM =~ "iTerm"
+let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
 let mapleader=";"
 let g:markdown_enable_spell_checking = 0
 " 设置 tagbar 子窗口的位置出现在主编辑区的左边
@@ -79,7 +91,7 @@ let g:tagbar_compact=1
 let g:indexer_ctagsCommandLineOptions="--c++-kinds=+l+p+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
 " 模板补全
 " UltiSnips 的 tab 键与 YCM 冲突，重新设定
-"let g:UltiSnipsSnippetDirectories=["/Users/kingle/.vim/bundle/ultisnips/mysnippets/cpp.snippets"]
+let g:UltiSnipsSnippetDirectories = ['UltiSnips', $HOME.'/.vim/UltiSnips']
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
@@ -97,6 +109,8 @@ let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 "Syntastic 
 set statusline+=%#warningmsg#
@@ -121,7 +135,8 @@ set background=dark
 "colorscheme molokai
 "colorscheme phd
 "colorscheme lucius
-colorscheme dracula
+"colorscheme dracula
+colorscheme space-vim-dark
 " 禁止显示滚动条
 set guioptions-=l
 set guioptions-=L
@@ -325,3 +340,5 @@ endfunction
     nnoremap <silent> <leader>gi :Git add -p %<CR>
     nnoremap <silent> <leader>gg :SignifyToggle<CR>
   "}
+let g:neocomplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1

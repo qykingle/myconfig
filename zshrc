@@ -2,15 +2,16 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
 # Path to your oh-my-zsh installation.
+set shell=bash\ -i
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 export ZSH=$HOME/.oh-my-zsh
 export PATH="/usr/local/sbin:$PATH"
-
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 export GOPATH=$HOME/gopath
 export PATH=$PATH:$HOME/go/bin:$GOPATH/bin
-
 export PATH="$PATH:/usr/local/chromedriver"
 export PATH="$PATH:/usr/local/phantomjs"
+#export PATH="$PATH:/usr/local/bin/vim"
 
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -22,7 +23,9 @@ ZSH_THEME="cloud"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 #alias mysqladmin="/Applications/MAMP/Library/bin/mysqladmin"
+eval $(thefuck --alias FUCK)
 alias nv="nvim"
+alias bat="bat --theme=TwoDark"
 alias o="open"
 alias rmdotfiles='find . -name "._*" | xargs rm -f'
 alias cp="cp -i"
@@ -51,7 +54,7 @@ alias cat='ccat'
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome &"
 alias em="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias svim='sudo mvim -v'
-alias mcd='cd /Volumes/kinglemac/code'
+alias mcd='cd /Volumes/kingMac/code'
 alias des='cd ~/Desktop'
 alias down='cd ~/Downloads'
 #alias php='/usr/local/Cellar/php70/7.0.18_10/bin/php'
@@ -140,3 +143,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval $(thefuck --alias)
