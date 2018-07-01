@@ -10,4 +10,7 @@
 - pac.conf `shadowsocks`pac配置文件
 - proxychains.conf `proxychains-ng`配置文件
 - tmux.conf `tmux`配置文件
+- reset.css 重置样式文件
+- border.css 移动端边框1px显示问题
+- jetbrains 配置文件
 
