@@ -73,7 +73,7 @@ alias la='ls -a'
 alias vi='vim'
 alias sub=\''/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'\'
 alias pc='proxychains4'
-alias mk='mysql -uroot -pqykroot -P 8889'
+#alias mk='mysql -uroot -pqykroot -P 8889'
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
@@ -103,7 +103,7 @@ alias mk='mysql -uroot -pqykroot -P 8889'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git-open git sublime zsh-autosuggestions zsh-syntax-highlighting  extract autojump)
+plugins=(git-open git sublime zsh-autosuggestions zsh-syntax-highlighting  extract autojump colored-man-pages docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -145,3 +145,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval $(thefuck --alias)
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/kingle/redis-client-app/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/kingle/redis-client-app/node_modules/tabtab/.completions/electron-forge.zsh
