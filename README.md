@@ -1,4 +1,4 @@
-# my mac config
+# my mac configs
 - .zshrc `zsh`配置文件
 - .eslintrc `eslint`配置文件
 - .vimrc `vim`配置文件
