@@ -1,10 +1,8 @@
 [user]
-	name = memedaqyk
+	name = qykingle
 	email = qianyongkang12345@gmail.com
-[include]
-	path = ~/.gitconfig.local
-[mergetool]
-	keepBackup = true
+[credential]
+  helper = store
 [alias]
 	# Show the diff between the latest commit and the current state
 	d	= !"git diff"
@@ -29,24 +27,3 @@
 	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 	tagcommit = !sh -c 'git rev-list $0 | head -n 1'
-[color]
-		ui = true
-[core]
-    editor = vim
-	excludesfile = /Users/guanghui/.gitignore_global
-    autocrlf = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[push]
-	default = matching
-[branch]
-	autosetuprebase = always
-[pack]
-	windowMemory = 100m
-	packSizeLimit = 100m
-	threads = 1
-	SizeLimit = 100m

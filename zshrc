@@ -4,6 +4,13 @@
 # Path to your oh-my-zsh installation.
 set shell=bash\ -i
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+#export NVM_DIR="$HOME/.nvm"
+#. "/usr/local/opt/nvm/nvm.sh"
+# export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 export ZSH=$HOME/.oh-my-zsh
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -11,9 +18,14 @@ export GOPATH=$HOME/gopath
 export PATH=$PATH:$HOME/go/bin:$GOPATH/bin
 export PATH="$PATH:/usr/local/chromedriver"
 export PATH="$PATH:/usr/local/phantomjs"
+export PATH=/Users/kingle/Library/flutter/bin:$PATH
+export ANDROID_HOME=/Volumes/kingMac/sdk
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
 #export PATH="$PATH:/usr/local/bin/vim"
+# export PATH="/usr/local/bin:$PATH"
 
-#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 export PATH=~/anaconda3/bin:$PATH
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -23,7 +35,22 @@ ZSH_THEME="cloud"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 #alias mysqladmin="/Applications/MAMP/Library/bin/mysqladmin"
-eval $(thefuck --alias FUCK)
+#eval $(thefuck --alias FUCK)
+function cdd() {
+  cd"$@" && ls
+}
+function mdd {
+  mkdir $1
+  cd"$@" && ls
+}
+function gitpush() {
+    B=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+    git add -A .
+    git commit -m $1
+    git fetch
+    git pull origin $B
+    git push -u origin $B
+}
 alias nv="nvim"
 alias bat="bat --theme=TwoDark"
 alias o="open"
@@ -52,7 +79,9 @@ alias cat='ccat'
 
 #alias vim='mvim -v'
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome &"
+alias vs="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias em="/Applications/Emacs.app/Contents/MacOS/Emacs"
+alias mk="/Applications/Mark\ Text.app/Contents/MacOS/Mark\ Text @"
 alias svim='sudo mvim -v'
 alias mcd='cd /Volumes/kingMac/code'
 alias des='cd ~/Desktop'
@@ -144,8 +173,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval $(thefuck --alias)
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /Users/kingle/redis-client-app/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/kingle/redis-client-app/node_modules/tabtab/.completions/electron-forge.zsh
+source /Users/kingle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="/usr/local/opt/ruby/bin:$PATH"

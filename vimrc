@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/luofei614/vim-plug', { 'dir':'~/.vim/my'}
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
@@ -56,10 +55,6 @@ call plug#end()
 
 " 更新时间：2018-05-12
 " 定义快捷键的前缀，即 <Leader>
-if $TERM_PROGRAM =~ "iTerm"
-let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
 let mapleader=";"
 let g:markdown_enable_spell_checking = 0
 " 设置 tagbar 子窗口的位置出现在主编辑区的左边
@@ -112,12 +107,61 @@ let g:syntastic_check_on_wq = 0
 
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
+" Normal
+nnoremap dd ddzz
+" Visual
+vnoremap d dzz
+
+" Normal + Visual
+noremap # #zz
+noremap * *zz
+noremap w wzz
+noremap W Wzz
+noremap e ezz
+noremap E Ezz
+noremap b bzz
+noremap B Bzz
+noremap H Hzz
+noremap L Lzz
+noremap 0 0zz
+noremap $ $zz
+noremap ^ ^zz
+noremap j jzz
+noremap k kzz
+noremap G Gzz
+noremap u uzz
+noremap ( (zz
+noremap ) )zz
+noremap { {zz
+noremap } }zz
+noremap [{ [{zz
+noremap ]} ]}zz
+noremap gd gdzz
+
+set relativenumber
+set backspace=indent,eol,start
+set showcmd
+set textwidth=80
+set history=1000
+set autoread
+set listchars=tab:»■,trail:■
+set list
+set wrap
+set linebreak
+set wrapmargin=2
+set autochdir
+set noerrorbells
+set visualbell
+set showmatch
+"set spell spelllang=en_us
+set nobackup
+set noswapfile
 "Syntastic 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 " 保存 undo 历史。必须先行创建 .undo_history/
-set undodir=~/.undo_history/
+set backupdir=~/.vim/.undo_history/
 set undofile
 "激活鼠标
 set mouse=a
@@ -129,6 +173,7 @@ set ignorecase
 set nocompatible
 " vim 自身命令行模式智能补全
 set wildmenu
+set wildmode=longest:list,full
 " 配色方案
 set background=dark
 "colorscheme solarized
@@ -230,7 +275,7 @@ nnoremap <leader>f :MRU<CR>
 nnoremap <leader>o :BufExplorer<cr>
 " Redo
 nnoremap U <C-r>
-nnoremap <Leader>rv :source ~/.vimrc<CR>
+nnoremap <Leader>rv :source %<CR>
 " 设置快捷键将系统剪贴板内容粘贴至vim
 nnoremap <Leader>p "+p
 nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>

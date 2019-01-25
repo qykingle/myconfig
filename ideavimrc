@@ -1,19 +1,83 @@
+" leader
+let mapleader = ";"
+
 set gdefault
 set ignorecase
 set smartcase
 set showmode
 set number
+" 显示相对行号
+set rnu
+" 启用vim surround功能
+set surround
+" 自动定位到输入中的字符串，不需要回车搜索
+set incsearch
+" 高亮搜索
+set hlsearch
 
 " ============================================================================
 " Movement
 " ============================================================================
 
-" Scroll screen with the cursor
-noremap <C-j> gj<C-e>
-noremap <C-k> gk<C-y>
+" Normal
+" Reload .ideavimrc
+nnoremap <Space>vs :source ~/.ideavimrc<CR>
+nnoremap dd ddzz
+noremap # #zz
+noremap * *zz
+noremap w wzz
+noremap W Wzz
+noremap e ezz
+noremap E Ezz
+noremap b bzz
+noremap B Bzz
+noremap H Hzz
+noremap L Lzz
+noremap 0 0zz
+noremap $ $zz
+noremap ^ ^zz
+noremap j jzz
+noremap k kzz
+noremap G Gzz
+noremap u uzz
+noremap ( (zz
+noremap ) )zz
+noremap { {zz
+noremap } }zz
+noremap [{ [{zz
+noremap ]} ]}zz
+noremap gd gdzz
 
+noremap <C-O> <ESC>:action Back<CR>
+noremap <C-I> <ESC>:action Forward<CR>
+noremap <C-D> <C-D>zz
+noremap <C-U> <C-U>zz
+noremap <leader>q :wq<CR>
 
-" Insert mode
+nnoremap / :action Find<CR>
+nnoremap n :action FindNext<CR>
+nnoremap N :action FindPrevious<CR>
+nnoremap U :action $Redo<CR>
+nnoremap ; :action AceJumpAction<CR>
+nnoremap <leader>o :action GotoClass<CR>
+nnoremap <leader>O :action GotoFile<CR>
+nnoremap <leader>j :action RecentFiles<CR>
+nnoremap <leader>k :action FileStructurePopup<CR>
+nnoremap <leader>q :action CloseContent<cr>
+nnoremap <leader>Q :action ReopenClosedTab<cr>
+nnoremap <leader>e :action SearchEverywhere<cr>
+nnoremap <leader>t :action FileStructurePopup<cr>
+nnoremap <leader>a :action GotoAction<cr>
+nnoremap <leader>b :action ToggleLineBreakpoint<cr>
+nnoremap <leader>r :action Run<cr>
+nnoremap <leader>d :action Debug<cr>
+nnoremap <leader>; :action RenameFile<cr>
+nnoremap <leader>h :action HideAllWindows<cr>
+" global find
+noremap g/ <ESC>:action FindInPath<CR>
+
+" Insert
+inoremap kj  <Esc>`^
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 inoremap <C-f> <Right>
@@ -21,73 +85,5 @@ inoremap <C-b> <Left>
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
 
-" Previous / next match
-noremap H ^
-noremap L $
-
-" ============================================================================
-" Editing
-" ============================================================================
-
-" Escape
-inoremap kj  <Esc>`^
-inoremap <C-q> <Esc>`^
-noremap <C-q> <Esc>
-vnoremap <C-q> <Esc>
-cmap <C-q> <C-c>
-
-" Moving blocks of text in visual mode
-vnoremap < <gv
-vnoremap > >gv
-
-" Select all text
-map <Space>a ggVG
-
-" Copy until the end of the line
-noremap Y y$
-
-" Indent everything
-noremap <Space>I ggvG=
-
-" Indent selection in visual mode
-vnoremap <Space>i =
-
-" Indent the current line
-noremap <Space>i v=
-
-" Change current word - kill
-noremap K ciw
-
-" Change in double quotes
-noremap J ci"
-
-" Join lines
-nnoremap <Space>J J
-
-
-" ============================================================================
-" Editor control
-" ============================================================================
-
-" Enter the command-line mode
-noremap <CR> :
-
-" Reload .ideavimrc
-nnoremap <Space>vs :source ~/.ideavimrc<CR>
-
-
-" ============================================================================
-" IDE actions
-" ============================================================================
-
-nnoremap / :action Find<CR>
-nnoremap n :action FindNext<CR>
-nnoremap N :action FindPrevious<CR>
-nnoremap U :action $Redo<CR>
-nnoremap ; :action AceJumpAction<CR>
-nnoremap <Space>o :action GotoClass<CR>
-nnoremap <Space>O :action GotoFile<CR>
-nnoremap <Space>d :action CloseContent<CR>
-nnoremap <Space>j :action RecentFiles<CR>
-nnoremap <Space>k :action FileStructurePopup<CR>
-nnoremap <Space>h :action QuickJavaDoc<CR>
+" Visual
+vnoremap d dzz
